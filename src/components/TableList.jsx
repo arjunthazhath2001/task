@@ -1,22 +1,21 @@
 import React from "react";
 
-function TableList() {
+function TableList({handleOpen}) {
 
     const todos =[ 
-        {id:1,title:"go to gym", status:"not done"},
-        {id:2,title:"go to store", status:"done"},
-        {id:3,title:"go to school", status:"done"},
+        {id:1,title:"go to gym"},
+        {id:2,title:"go to store"},
+        {id:3,title:"go to school"},
     ]
   return (
     <>
-      <div className="overflow-x-auto mt-10">
+      <div className="overflow-x-auto mx-32 mt-10">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
               <th>ID</th>
               <th>TITLE</th>
-              <th>STATUS</th>
             </tr>
           </thead>
           <tbody className="hover">
@@ -25,9 +24,8 @@ function TableList() {
                 <tr key={index}>
                 <th>{todo.id}</th>
                 <td>{todo.title}</td>
-                <td>{todo.status}</td>
                 <td>
-                    <button className="btn btn-accent">Update</button>
+                    <button onClick={()=>handleOpen("edit")} className="btn btn-accent">Update</button>
                 </td>
                 <td>
                     <button className="btn btn-secondary">Delete</button>
